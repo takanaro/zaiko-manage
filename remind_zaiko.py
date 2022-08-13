@@ -32,7 +32,6 @@ def main():
     # OAuth2の資格情報を使用してGoogle APIにログイン。
     gc = gspread.authorize(credentials)
 
-    print(CommonConfig.get_spread_sheet_key())
     # スプレッドシート（ブック）を開く
     workbook = gc.open_by_key(CommonConfig.get_spread_sheet_key())
     # シートを開く
@@ -46,7 +45,7 @@ def main():
         send_text += '・' + item + f"\n"
     send_text += '注文完了後、下記シートの「発注セット数」を更新してください。\n'
     send_text += 'https://docs.google.com/spreadsheets/d/' \
-        + CommonConfig.get_line_channel_access_token() \
+        + CommonConfig.get_spread_sheet_key() \
         + '/edit?usp=sharing'
 
     # LINEでプッシュ通知
