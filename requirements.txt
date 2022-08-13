@@ -1,0 +1,7 @@
+gspread
+oauth2client
+yapf
+autopep8
+pandas
+line-bot-sdk
+ConfigParser
