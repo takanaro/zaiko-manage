@@ -39,6 +39,10 @@ def main():
 
     obj = ZaikoMaster(ws)
 
+    # 補充必要なものがない場合終了する
+    if not obj.get_missing_products():
+        return
+
     # LINEメッセージ送信用文字列作成
     send_text = '下記商品の補充が必要です。\n'
     for item in obj.get_missing_products():
